@@ -85,9 +85,9 @@ function Lists()
         return props.map(miniCard);
     }
     return(
-        <div className="Whole">
+        <div className="Main">
             <div className="Lists">
-                <h1>lists</h1>
+                <h1>Lists</h1>
                 <div className="View">
                     <input onChange={Up} value={elem} placeholder="Type Something"/>
                     <button onClick={Upp} >ADD</button>
@@ -95,8 +95,8 @@ function Lists()
                 {Show(listarr)}
             </div>
         
-            <div className="part2">
-                <h1>tasks</h1>
+            <div className="Tasks">
+                <h1>Tasks</h1>
                 {Pleasetask(selected)}
             </div>
         </div>
