@@ -1,5 +1,5 @@
 import react, { useState } from "react";
-
+import sym from '../del.jpg';
 function Lists()
 {
     const [elem,UpdateElem]=useState("");
@@ -25,19 +25,32 @@ function Lists()
         Updatemini(mei);
     }
     
-    // function miniAsk(event)
-    // {
-    //     const whic=event.target.id;
-    //     var tem=mini[whic];
-    //     for(var i=0;i<selected.length;i++)
-    //     {
-    //         if(i!=whic)
-    //         {
-    //             tem=[...tem,selected[i]];
-    //         }
-    //     }
-    //     UpdateSelected(tem);
-    // }
+    function miniAsk(event)
+    {
+        const whic=event.target.id;
+        var tem=[];
+        for(var i=0;i<mini[selected].length;i++)
+        {
+            if(i!=whic)
+            {
+                tem=[...tem,mini[selected][i]];
+            }
+        }
+        // UpdateSelected(tem);
+        var ans=[];
+        for(var i=0;i<mini.length;i++)
+        {
+            if(i!=selected)
+            {
+                ans=[...ans,mini[i]];
+            }
+            else
+            {
+                ans=[...ans,tem];
+            }
+        }
+        Updatemini(tem);
+    }
     function Pleasetask(props)
     {
         // return props.map(miniCard);
@@ -80,7 +93,7 @@ function Lists()
     }
     function miniCard(props,index)
     {
-        return <p id={index} /*onClick={miniAsk}*/>{props}</p>
+        return <p id={index} onClick={miniAsk}>{props}</p>
     }
     function Show(props)
     {
@@ -90,10 +103,9 @@ function Lists()
     function Card(props,index)
     {
         return(
-            <div className='q'>
-                <button id={index} onClick={Del}>x</button>
-                <p>{props}</p>
-                <button id={index} onClick={Addtasks}>+</button>
+            <div className='InsideTasks'>
+                <img src={sym} id={index} onClick={Del}></img>
+                <p id={index} onClick={Addtasks}>{props}</p>
             </div>
         )
     }
@@ -117,9 +129,7 @@ function Lists()
     function Addtasks(event)
     {
         const where=event.target.id;
-        // var temp=(where>=0 && where<mini.length)?mini[where]:null;
         UpdateSelected(where);
-        // UpdateSelected(["hey"]);
     }
 
     return(

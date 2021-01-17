@@ -7,7 +7,7 @@ function App() {
 	<div>
 		<div className='Header'>
 		<h1>ToDo</h1>
-		<p>Be the man</p>
+		<p>JUST DO IT!</p>
 		</div>
 		<Lists/>
 		<Footer/>
