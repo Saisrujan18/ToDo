@@ -39,7 +39,6 @@ body
 .Main
 {
     display: flex;
-    /* background-color: #202b46; */
 }
 
 .footer
@@ -89,6 +88,12 @@ body
     color: #F4DB78;
     font-size: larger;
 }
+
+/* .View
+{
+    border-radius: 25px;
+} */
+
 .q
 {
     display: flex;
