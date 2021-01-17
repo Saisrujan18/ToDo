@@ -1,5 +1,5 @@
 import react, { useState } from "react";
-import sym from '../del.jpg';
+
 function Lists()
 {
     const [elem,UpdateElem]=useState("");
@@ -37,7 +37,6 @@ function Lists()
                 tem=[...tem,mini[which][i]];
             }
         }
-        // UpdateSelected(tem);
         var ans=[];
         for(var i=0;i<mini.length;i++)
         {
@@ -53,29 +52,31 @@ function Lists()
         Updatemini(ans);
         UpdateSelected(which);
     }
+
     function Pleasetask(props)
     {
-        // return props.map(miniCard);
-        console.log("Ples");
-        console.log(props);
-        console.log(mini[props]);
         if(props==null){return ("");}
         return (
             <div>
-            <div className="TasksSearch">
-                <button id={props} onClick={handletaskClick}>+</button>
-                <input id={props} onChange={handleChangeInTasks} value={taskelem}></input>
+            <div className="Intro">
+                <p>Add Tasks to </p>
+                <h5>{listarr[props]}</h5>
             </div>
-            {/* console.log(mini[props]); */}
+            <div className="TasksSearch">
+                <button className="btni createi" id={props} onClick={handletaskClick}>+</button>
+                <input className="newi" id={props} onChange={handleChangeInTasks} value={taskelem}></input>
+            </div>
             {mini[props].map(miniCard)}
             </div>
         )
     }
+
     function handleChangeInTasks(event)
     {
         const temp=event.target.value;
         evolve(temp);
     }
+
     function handletaskClick(event)
     {
         var temp=[];
@@ -96,10 +97,12 @@ function Lists()
         Updatemini(temp);
         evolve("");
     }
+
     function miniCard(props,index)
     {
         return <p id={index} onClick={miniAsk}>{props}</p>
     }
+
     function Show(props)
     {
         return props.map(Card);
@@ -109,11 +112,12 @@ function Lists()
     {
         return(
             <div className='InsideTasks'>
-                <img src={sym} id={index} onClick={Del}></img>
+                <button className="btn2 create2" id={index} onClick={Del}>x</button>
                 <p id={index} onClick={Addtasks}>{props}</p>
             </div>
         )
     }
+
     function Del(event)
     {
         const which=event.target.id;
@@ -131,6 +135,7 @@ function Lists()
         Updatemini(tem);
         UpdateSelected(null);
     }
+
     function Addtasks(event)
     {
         const where=event.target.id;
@@ -139,11 +144,12 @@ function Lists()
 
     return(
         <div className="Main">
+
             <div className="Lists">
                 <h1>Lists</h1>
                 <div className="View">
-                    <button onClick={handleClick} >+</button>
-                    <input onChange={handleChange} value={elem} placeholder="Type Something"/>
+                    <button className="btn create" onClick={handleClick} >+</button>
+                    <input className="new" onChange={handleChange} value={elem} placeholder=""/>
                 </div>
                 {Show(listarr)}
             </div>
@@ -152,6 +158,7 @@ function Lists()
                 <h1>Tasks</h1>
                 {Pleasetask(selected)}
             </div>
+
         </div>
     )
 }
