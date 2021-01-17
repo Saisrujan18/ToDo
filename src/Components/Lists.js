@@ -28,19 +28,20 @@ function Lists()
     function miniAsk(event)
     {
         const whic=event.target.id;
+        const which=selected;
         var tem=[];
-        for(var i=0;i<mini[selected].length;i++)
+        for(var i=0;i<mini[which].length;i++)
         {
             if(i!=whic)
             {
-                tem=[...tem,mini[selected][i]];
+                tem=[...tem,mini[which][i]];
             }
         }
         // UpdateSelected(tem);
         var ans=[];
         for(var i=0;i<mini.length;i++)
         {
-            if(i!=selected)
+            if(i!=which)
             {
                 ans=[...ans,mini[i]];
             }
@@ -49,12 +50,15 @@ function Lists()
                 ans=[...ans,tem];
             }
         }
-        Updatemini(tem);
+        Updatemini(ans);
+        UpdateSelected(which);
     }
     function Pleasetask(props)
     {
         // return props.map(miniCard);
+        console.log("Ples");
         console.log(props);
+        console.log(mini[props]);
         if(props==null){return ("");}
         return (
             <div>
@@ -62,6 +66,7 @@ function Lists()
                 <button id={props} onClick={handletaskClick}>+</button>
                 <input id={props} onChange={handleChangeInTasks} value={taskelem}></input>
             </div>
+            {/* console.log(mini[props]); */}
             {mini[props].map(miniCard)}
             </div>
         )

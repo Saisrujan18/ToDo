@@ -108,8 +108,9 @@ body
 {
     margin-left: 10%;
     margin-right: 20%;
-    margin-bottom: 1em;
-    width:2em;
-    height:2em;
+    /* margin-bottom: 1em; */
+    margin-top: 1%;
+    /* width:41.64mm; */
+    /* height:23.33mm; */
     color: white;
 }
